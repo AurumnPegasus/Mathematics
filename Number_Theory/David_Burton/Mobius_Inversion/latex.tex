@@ -1,0 +1,173 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\counterwithin*{equation}{section}
+\counterwithin*{equation}{subsection}
+
+\title{Mobius Inversion}
+\author{ S. Shivansh }
+\date{ 19\textsuperscript{th} May 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\[
+    \mu(n) = 
+    \begin{cases}
+    1     &: n = 1\\ 
+    0     &: p^2\vert n\\
+    (-1)^r  &: n = p_1p_2p_3. . . p_r\\ 
+     \end{cases}
+\]
+
+\section{Theorems}
+
+\subsection{}\label{Lemma 1}
+\[
+    F(n) = \sum_{d\vert n} \mu(d)
+\]
+
+Since \(\mu\) is multiplicative, it is enough to show this property for p\textsuperscript{k}
+
+\[
+    F(n) = \mu(1) + \mu(p) + \mu(p^2) . . . + \mu(p^k)
+\]
+\[
+    F(n) = \mu(1) + \mu(p) + 0
+\]
+\[  
+    F(n) = 1 + (-1)^r
+\]
+\[
+    F(n) = 0
+\]
+
+This leads us to the result
+
+\[
+    \sum_{d\vert n} \mu(d) = 
+    \begin{cases}
+    1     &: n = 1\\ 
+    0     &: n \neq 1\\
+     \end{cases}
+\]
+
+\subsection{Mobius Inversion Formula}
+
+\begin{equation}\label{2.2_1}
+    F(n) = \sum_{d\vert n} f(d)
+\end{equation}
+
+This implies that
+
+\[
+    f(n) = \sum_{d\vert n} \mu(d) F(\frac{n}{d})
+\]
+
+Proof: 
+
+Lets say all the factors which divide \(\frac{n}{d}\) are denoted by c
+
+By \ref{2.2_1} we get
+
+\[
+    f(n) = \sum_{d\vert n} \mu(d) \sum_{c \vert \frac{n}{d}}f(c)
+\]
+
+We know that \( d\vert n\) and \( c\vert \frac{n}{d}\) iff \(c\vert n \) and \(d\vert \frac{n}{c}\)
+
+By substituting in the equation we get
+
+\[
+    f(n) = \sum_{c\vert n} f(c) \sum_{d \vert \frac{n}{c}}\mu(d)
+\]
+
+We know from \ref{Lemma 1} that for all \(x \neq 1\),  \(\mu(x) = 1\)
+
+Therefore answer is only defined for n = c
+
+\[
+    f(n) = \sum_{c = n}f(c)
+\]
+
+\[
+    f(n) = f(n)
+\]
+
+\subsection{Merten's Conjecture}
+\[
+    M(n) = \sum_{k = 1}^{n} \mu(k)
+\]
+
+
+M(n) gives you the value of difference between number of square free integers \indent with an even number of prime factors with the number of square free integers \indent with an odd number of prime factors. This is verified till 10 billion.
+
+
+\subsection{}
+
+
+If \(n = p_1^{k_1} . p_2^{k_2} . . . . p_r^{k_r}\) and f is a multiplicative function which is not identically 0, then
+
+\[
+    \sum_{d\vert n}\mu(d)f(d) = \prod_{k=1}^{r}(1 - f(p_k))
+\]
+Proof:
+
+Assume a function F(n) such that
+\[ F(n) = \sum_{d\vert n} \mu(d)f(d) \]
+
+Since F(n) is product of two multiplicative functions, therefore it itself is \indent multiplicative
+\[ F(p_1^{k_1} . p_2^{k_2} . . . p_r^{k_r} ) = F(n)\]
+\[
+    F(p_i^{k_i}) = \sum_{d\vert p_i^{k_i}} \mu(d)f(d)
+\]
+\[
+    F(p_i^{k_i}) = \mu(1)f(1) + \mu(p_i)f(p_i) + \mu(p_i^2)f(p_i^2) . . \mu(p_i^{k_i})f(p_i^{k_i})
+\]
+\[
+    F(p_i^{k_i}) = \mu(1)f(1) + \mu(p_i)f(p_i)
+\]
+\begin{equation}\label{equation_1}
+    F(p_i^{k_i}) = 1 - f(p_i)
+\end{equation}
+
+By taking product of equation \ref{equation_1} for all possible i, we get
+
+\[
+    F(n) = \sum_{d\vert n}\mu(d)f(d) = \prod_{k=1}^{r} (1 - f(p_k))
+\]
+
+\subsection{Number of Square free divisors}
+
+Let S(n) represent the number of square free divisors of n.
+\[
+    S(n) = \sum_{d\vert n } \mathopen|\mu(d)\mathclose| = 2^{\omega(n)}
+\]
+Where \(\omega(n)\) is the number of distinct primes which divide n
+
+Proof:
+
+Let n = \(p_1^{k_1} . p_2^{k_2} . . . p_r^{k_r}\)
+\[\sum_{d\vert n} \mathopen|\mu(d)\mathclose| = \sum_{t = 1}^r\sum_{d\vert p_t^{k_t}} \mathopen|\mu(d)\mathclose|\]
+\[
+    \sum_{d\vert n} \mathopen|\mu(d)\mathclose| = \sum_{t = 1}^r\mu(1) + \mathopen|\mu(p_t)\mathclose|
+\]
+
+
+Since all the divisors which weren't square free are eliminated, we prove \indent the first part of the equation.
+
+Since n = \(p_1^{k_1} . p_2^{k_2} . . . p_r^{k_r}\)
+Number of ways of choosing p such that atmost 1 is \indent chosen of 1 type is
+\[
+    S(n) = \binom{k}{1} + \binom{k}{2} + . . . + \binom{k}{k}
+\]
+
+\[
+    S(n) = ( 1 + 1 )^k = 2^k = 2^{\omega(n)}
+\]
+
+\end{document}
+

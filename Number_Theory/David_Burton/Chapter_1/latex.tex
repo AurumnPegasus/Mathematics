@@ -1,0 +1,193 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\title{ Chapter 1 }
+\author{ S. Shivansh }
+\date{ 6\textsuperscript{th} May 2020 }
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+
+\counterwithin*{equation}{subsubsection}
+
+\section{ Binomial Theorem }
+The Binomial Coefficient is defined by the expression : 
+\[
+    \binom{n}{k} = \frac{n!}{k!(n-k)!}
+\]
+
+
+\section*{ Pascal's Rule }
+\[
+    \binom{n}{k} + \binom{n}{k-1} = \binom{n+1}{k}
+\]
+This relation gives rise to the famous Pascal's Triangle, in which \( \binom{n}{k}\) appears at ( k + 1 )\textsuperscript{th} index of the n\textsuperscript{th} row
+
+\subsection*{ Properties }
+\subsubsection{}\label{1.0.1}
+This property can be proved by expansion
+\[
+    \binom{n}{k} \times \binom{k}{r} = \binom{n}{r} \times \binom{n-r}{k-r}
+\]
+\subsubsection{}\label{1.0.2}
+This property can be proved by using Property \ref{1.0.1}
+\[
+    \binom{n}{k} = \frac{(n-k+1)}{k} \times \binom{n}{k-1}
+\]
+\subsubsection{}\label{1.0.3}
+This property can be proved by expansion. This is valid for $n\geq$4 .
+\[
+    \binom{n}{k} = \binom{n-2}{k-2} + 2\binom{n-2}{k-1} + \binom{n-2}{k}
+\]
+\subsubsection{}\label{1.0.4}
+\[ \binom{2m}{2} = 2\times\binom{m}{2} + m^2\]
+
+\section{ Triangular Numbers }
+A triangular number is a positive integer n such that n = 1 + 2 + .. + k
+\subsection*{ Properties }
+\subsubsection{}\label{2.0.1}
+For x to be triangular, x has to be of the form \(\frac{n\times(n+1)}{2}\)\newline
+
+Proof:\\
+
+\begin{equation}\label{first_equation_2.0.1}
+    x = n + (n-1) + (n-2) . . . + 1
+\end{equation}
+\begin{equation}\label{second_equation_2.0.1}
+    x = 1 + 2 + 3 . . . + n
+\end{equation}
+Adding both \ref{first_equation_2.0.1} and \ref{second_equation_2.0.1}, we get
+\begin{equation}
+    2 \times x = (n+1) \times n
+\end{equation}
+From this, we can derive that
+\[
+    x = \frac{(n+1) \times n}{2}
+\]
+\subsubsection{}\label{2.0.2}
+Integer x is triangular iff 8x + 1 is a perfect square\\
+Part 1 : \\
+
+Prove that if x is a triangular number, then 8x + 1 is a perfect square \\
+
+From Property \ref{2.0.1} we know that 
+\[ x = \frac{n \times (n+1) }{2}\]
+Hence, we know
+\[ 2x = n \times (n+1) \]
+\[ 8x = 4n^2 + 4n \]
+\[ 8x + 1 = 4n^2 + 4n + 1 \]
+Hence we get at the final result
+\begin{equation}\label{first_equation_2.0.2}
+    8x + 1 = ( 2n + 1 )^2
+\end{equation}
+\newpage
+Part 2 : \\
+
+Prove that if 8x + 1 is a perfect square, x is triangular \\
+\[ 8x + 1 = k^2 \]
+
+Since LHS is odd, this implies that k is odd. So let k = \( 2n + 1\)
+\[ 8x + 1 = (2n + 1)^2 \]
+\[ 8x + 1 = 4n^2 + 4n + 1 \]
+\[ 8x = 4n^2 + 4n \]
+\[ 2x = n^2 + n \]
+\begin{equation}\label{second_equation_2.0.2}
+    x = \frac{n \times (n+1) }{2}
+\end{equation}
+From Part 1 and Part 2, we can deduce that the property mentioned is true.
+
+\subsubsection{}\label{2.0.3}
+Property of any 2 consecutive triangular numbers is a perfect square. \\
+
+
+From \ref{2.0.1} we can say
+\begin{equation}\label{first_equation_2.0.3}
+    x = \frac{n \times (n+1)}{2}
+\end{equation}
+\begin{equation}\label{second_equation_2.0.3}
+    y = \frac{(n+1) \times (n+2) }{2}
+\end{equation}
+Where x and y are consecutive triangular numbers. \\
+
+From \ref{first_equation_2.0.3} adding \ref{second_equation_2.0.3} \\
+\[ x + y = \frac{ (n+1) \times ( n + (n + 2) )}{2}\]
+\[ x + y = (n+1)^2 \]
+
+\subsubsection{}\label{2.0.4}
+If number x is triangular, then 9x + 1, 25x + 3, 49x + 6 are also triangular.\\
+
+From Property \ref{2.0.2}, we know
+\[ x = 8n + 1 \]
+Where x is the n\textsuperscript{th} triangular number. 
+Now, replacing n with 9n + 1, we get
+\[ 8\times(9n+1) + 1\]
+\[ 72n + 9 \]
+\[ 9(8n + 1)\]
+We can observe this is a perfect square by property \ref{2.0.2}. Hence this is a triangular number. We can do similarly for rest of it.
+\newpage
+\subsubsection{}\label{2.0.5}
+if t\textsubscript{n} is the n\textsuperscript{th} triangular number, then
+\[ t_1 + t_2 . . . +t_n = \frac{n\times(n+1)\times(n+2)}{6}\]
+Proof: \\
+Multiplying and dividing LHS by 2, we get
+\[\frac{2t_1 + 2t_2 + 2t_3 . . . 2t_n}{2}\]
+Rearranging the terms
+\[\frac{t_1 + (t_1 + t_2 ) + (t_2 + t_3) . . . (t_{n-1} + t_n ) + t_n}{2} \]
+Using Property \ref{2.0.3}
+\[\frac{ t_1 + 2^2 + 3^2 . . . n^2 + t_n}{2} \]
+\[\frac{1^2 + 2^2 + 3^2 . . . n^2}{2} + \frac{n(n+1)}{4} \]
+\begin{equation}\label{first_equation_2.0.5}
+  \frac{n(n+1)(2n+1)}{12}  \frac{n(n+1)}{4}  
+\end{equation}
+Simplifying \ref{first_equation_2.0.5}, we get
+\[\frac{n\times(n+1)\times(n+2)}{6}\]
+\subsubsection{}\label{2.0.6}
+\[1\times2 + 2\times3 + 3\times4 . . . n\times(n+1) = \frac{n(n+1)(n+2)}{3}\]
+Proof\\
+
+
+We use the knowledge that \(2\times \binom{m}{2} = m^2 \)
+\[2\times\binom{2}{2} + 2\times\binom{3}{2} . . . 2\times\binom{n+1}{2}\]
+
+Taking 2 common and using Property \ref{2.0.5}, we get this simplified to 
+\[\frac{n(n+1)(n+2)}{3}\]
+
+\subsubsection{}\label{2.0.7}
+\[\binom{2}{2} + \binom{4}{2} + \binom{6}{2} . . . \binom{2n}{2} = \frac{n(n+1)(4n+1)}{6}\]
+Proof\\
+
+By Property \ref{1.0.4}, we get
+\[\binom{2\times1}{2} + \binom{2\times2}{2} + \binom{2\times3}{2} . . . \binom{2\times n}{2}\]
+\[2\times\binom{1}{2} + 1^2 + 2\times\binom{2}{2} + 2^2 . . . 2\times\binom{n}{2} +n^2\]\
+
+Grouping
+\[2( \binom{1}{2} + \binom{2}{2} + \binom{3}{2} . . \binom{n}{2} ) + ( 1^2 + 2^2 + 3^2 . .  + n^2 ) \]
+\[2\times\frac{(n-1)n(n+1)}{6} + \frac{n(n+1)(2n-1)}{6}\]
+
+Simplifying this, we get
+\[\frac{n(n+1)(4n+1)}{6}\]
+
+\subsubsection{}\label{2.0.8}
+\[1^2 + 3^2 + 5^2 . . . (2n-1)^2 = \binom{2n+1}{3}\]
+Proof: \\
+
+Using Property \ref{2.0.3}
+\[ k^2 = t_{k-1} + t_k\]
+
+For all k belonging to odd integers specified above
+
+\[t_1 + t_2 + t_3 . . . t_{2n-2} + t_{2n-1}\]
+
+Using Property \ref{2.0.5}
+\[\frac{2n(2n+1)(2n-1)}{6}\]
+
+Which is nothing but
+\[\binom{2n+1}{3}\]
+
+\end{document}
+
