@@ -1,0 +1,125 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\usepackage{chngcntr}
+\counterwithin*{equation}{section}
+\counterwithin*{equation}{subsection}
+
+\title{Greatest Integer Function}
+\author{Shivansh Subramanian}
+\date{20\textsuperscript{th} May 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Any number x can be represented as 
+\[
+    x = \floor*{x} + \theta
+\]
+
+
+Where \(\floor*{x}\) represents integer part of x whereas \(\theta\) represents the fractional part of x
+
+It is given that
+\[
+    x \geq \floor*{x}
+\]
+
+\section{Theorems}
+ 
+\subsection{Legendre Formula}
+If n is a positive integer, and p is a prime, then the exponent of the highest power of p that divides n! is
+\[
+    \sum_{k=1}^{\infty} = \floor{\frac{n}{p^k}}
+\]
+
+Proof
+
+Assume p, 2p, 3p . .. tp all exist before n, that implies they all divide n!
+\[
+    tp \leq n
+\]
+
+Which implies that there are exactly \(\floor{\frac{n}{p} }\) multiplies of p withing n!
+
+Similarly we can do this for \(p^2, p^3 . .. p^k\)
+
+And thus we conclude that
+\[
+    \sum_{k=1}^{\infty} = \floor{\frac{n}{p^k}}
+\]
+
+This can be extended to write
+
+\[
+    n! = \prod_{p\leq n} p^{\sum_{k=1}^{\infty} \floor{\frac{n}{p^k}}}
+\]
+
+
+\subsection{}
+
+Let F and f be number theoretic function such that
+\[F(n) = \sum_{d\vert n} f(d) \]
+Then 
+
+\[
+    \sum_{n=1}^{N}F(n) = \sum_{k=1}^{N} f(k) \times \floor{\frac{N}{k}}
+\]
+
+Proof:
+
+We know that
+
+\begin{equation}\label{1_2.2}
+    \sum_{n=1}^{N} F(n) = \sum_{n=1}^{N} \sum_{d\vert n} f(d)
+\end{equation}
+
+
+Let there be some \(k \leq N\), therefore there must be multiples of k occurring \indent less than N which are \(k, 2k . . . \floor{\frac{N}{k}}\)
+
+So if we can find number of times each f(k) occurs, what that would mean \indent is that we would be finding number of times each number less than N occurs \indent in the second summation of RHS
+
+Thus we can transform equation \ref{1_2.2} into 
+\[
+    \sum_{n=1}^{N} F(n) = \sum_{n=1}^{N} \sum_{d\vert n} f(d) = \sum_{k=1}^{N} f(k) \times \floor{\frac{N}{k}}
+\]
+
+\subsection{}
+Let n be represented in p-nary, such that
+
+\[
+    n = a_{k}p^{k} + a_{k-1}p^{k-1} + . . . + a_{0}
+\]
+The exponent of highest power of p occurring in n! is
+\[
+    \frac{n - (a_k + a_{k-1} + . . + a_0)}{p-1}
+\]
+
+Proof:
+
+\[
+    answer = \sum_{k=1}^{\infty} \floor{\frac{n}{p}}
+\]
+
+\[
+    answer = ( a_{k}p^{k-1} + a_{k-1}p^{k-2} + . . a_1 ) + ( a_{k}p^{k-2} + . . . + a_2 ) . . . . ( a_{k} ) 
+\]
+
+\[
+    answer = a_{k} ( p^{k-1} + p^{k-2} + . . 1 ) + a_{k-1} ( p^{k-2} + p^{k-3} + . . 1 ) . . a_{1}
+\]
+
+\[
+    answer = a_{k} \frac{p^{k} - 1}{p - 1} + a_{k-1} \frac{p^{k-1} - 1}{p - 1} + . . .  + a_1 \frac{p-1}{p-1} + a_0\frac{1 - 1}{p - 1}
+\]
+
+\[
+    answer = \frac{n - (a_k + a_{k-1} + .  . . + a_0 )}{p-1}
+\]
+
+\end{document}
+
