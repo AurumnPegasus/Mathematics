@@ -297,5 +297,227 @@ And since
     \phi(n) \leq n - \sqrt{n}
 \]
 
+\subsection{}
+
+If every prime number dividing n also divides m, then
+\[
+    \phi(mn) = n \phi(m)
+\]
+
+Proof:
+
+\[
+     n = p_1^{a_1} p_2^{a_2} . . . p_k^{a_k}
+\]
+\[
+    m = p_1^{b_1} p_2^{a_2} . . . p_{k+l}^{a_{k+l}}
+\]
+
+\[
+    \phi(mn) = mn \prod_{x=1}^{k+l} [1 - \frac{1}{p_x}]
+\]
+
+\[
+    \phi(mn) = mn [1 - \frac{1}{p_1}] [1 - \frac{1}{p_2}] . . [1 - \frac{1}{p_{k+l}}]
+\]
+
+\[
+    \phi(mn) = n \phi(m)
+\]
+
+\subsection{}
+
+If \(\phi(n) \vert {n-1}\) then n is a square free integer
+
+Proof:
+Let
+\[
+    n = p_1^{a_1} p_2^{a_2} . . . p_r^{a_r}
+\]
+
+Say \(\phi(n) \vert {n-1}\)
+Then
+\[
+    \phi(n) = n \prod_{k=1}^{r} [1 - \frac{1}{p_k}]
+\]
+
+Assume there is some \(p_i\) such that \(a_i > 1\)
+That means 
+\[
+    p_i \vert{\phi(n)}
+\]
+
+Which implies
+\[
+    p_i \vert n-1
+\]
+
+But since \(a_i > 1\)
+\[
+    p_i \vert n
+\]
+
+Which is a contradiction since gcd(n, n-1) = 1
+
+Thus n is square free
+
+\subsection{}
+\[
+    \sigma(n) \phi(n) \geq n^2 \prod_{k=1}^{r} [ 1 - \frac{1}{p_k^2}]
+\]
+
+Proof:
+
+We already know that
+\[
+    \phi(n) = n \prod_{k=1}^r [1-\frac{1}{p_k}]
+\]
+
+And
+\[
+    \sigma(n) = ( 1 + p_1 + p_1^2 + . .+  p_1^{a_1}) ( 1 + p_2 + . . + p_2^{a_2}). .. . ( 1 + p_r + . . . + p_r^{a_r})
+\]
+
+If we were to take just the last two elements of each product we get
+\[
+    \sigma(n) \geq ( p_1^{a_1 - 1} + p_1^{a_1}) ( p_2^{a_2 -1}  + p_2^{a_2} )
+    . . .  ( p_r^{a_r - 1} + p_r^{a_r} )
+\]
+
+\[
+    \sigma(n) \geq n \prod_{k=1}^r [ 1 + \frac{1}{p_k}]
+\]
+
+Multiplying both the equations we get
+\[
+    \sigma(n) \phi(n) \geq n^2 \prod_{k=1}^{r} [ 1 - \frac{1}{p_k^2}]
+\]
+
+\subsection{}
+\[
+    \tau(n) \phi(n) \geq n
+\]
+
+Proof:
+
+We know
+\[
+    \tau(n) = (1 + a_1)(1 + a_2). . . . (1 + a_r)
+\]
+\[
+    \phi(n) = n \prod_{k=1}^r [1 - \frac{1}{p_k}]
+\]
+
+Substituting \(p_k = 2\) and \(a_k = 1\)
+\[
+    \tau(n) \geq 2^r
+\]
+\[
+    \phi(n) \geq \frac{n}{2^r}
+\]
+
+Multiplying both the equations we get
+\[
+    \tau(n) \phi(n) \geq n
+\]
+
+\subsection{}
+If \(d \vert n\) , then
+\[
+    \phi(d) \vert \phi(n)
+\]
+
+Proof:
+
+Let
+\[
+    d = p_1^{a_1} p_2^{a_2} . . . p_r^{a_r}
+\]
+\[
+    n = p_1^{b_1} p_2^{a_2} . . . p_s^{b_s}
+\]
+
+For each \(p_i\), \(a_i \leq b_i\)
+
+\[
+    \phi(d) = d\prod_{k=1}^r [1 - \frac{1}{p_k}]
+\]
+
+\[
+    \phi(n) = n\prod_{k=1}^s [1 - \frac{1}{p_k}]
+\]
+
+\[
+    \phi(n) = \phi(d) \times (p_1^{b_1-a_1} p_2^{b_2-a_2}. . . p_s^{b_s}) \times [1 - \frac{1}{p_{r+1}}] . . . [1 - \frac{1}{p_s}]
+\]
+
+\[
+    \frac{\phi(n)}{\phi(d)} = (p_1^{b_1-a_1} p_2^{b_2-a_2}. . . p_s^{b_s}) \times [1 - \frac{1}{p_{r+1}}] . . . [1 - \frac{1}{p_s}] = An Integer
+\]
+
+Therefore,
+\[
+    \phi(d) \vert \phi(n)
+\]
+
+\subsection{Gauss's Theorem}
+For each n \(>\) 1
+\[
+    n = \sum_{d\vert n} \phi(d)
+\]
+
+Proof:
+
+If d is a positive divisor of n, then we put integer m into a group S\textsubscript{d} such \indent that gcd(n,m) = d
+
+This implies that \(gcd(\frac{n}{d}, \frac{m}{d})\) = 1
+
+Therefore number of integers in this subgroup is equal to \(\phi(\frac{n}{d})\)
+
+Each of the integers 1, 2 . . . n lies in one of the categories of d, therefore \indent we get
+
+\[
+    n = \sum_{d\vert n} \phi(\frac{n}{d})
+\]
+
+Which is nothing but
+
+\[
+    n = \sum_{d\vert n} \phi(d)
+\]
+
+\subsection{}
+
+Sum of integers less than n and relatively prime to n is \[\frac{n\phi(n)}{2}\]
+
+Proof:
+
+Let \(a_1, a_2 . . a_{\phi(n)}\) be those integers
+
+This implies
+\[
+    gcd(a_i, n) = 1 \forall i \in [1,\phi(n)]
+\]
+
+This also means that
+
+\[
+    gcd(n - a_i, n) = 1 \forall i \in [1,\phi(n)]
+\]
+
+That imples that all \(n - a_i\) map to some \(a_j\)
+\[
+    \sum_{i=1}^{\phi(n)} a_i = \sum_{i=1}^{\phi(n)} n - a_i
+\]
+\[
+    \sum_{i=1}^{\phi(n)} a_i = n\phi(n) - \sum_{i=1}^{\phi(n)} a_i
+\]
+\[
+    2\sum_{i=1}^{\phi(n)} a_i = n\phi(n)
+\]
+\[
+    \sum_{i=1}^{\phi(n)} a_i = \frac{n\phi(n)}{2}
+\]
+    
 \end{document}
 
