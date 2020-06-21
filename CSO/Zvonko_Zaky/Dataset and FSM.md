@@ -73,7 +73,8 @@ Operations involving constant operands are clearly a common case, one well worth
 
 Therefore, the new structure looks like :
 
-![image-20200621061549940](C:\Users\91961\AppData\Roaming\Typora\typora-user-images\image-20200621061549940.png)
+![alt text](https://github.com/AurumnPegasus/Notes/blob/master/CSO/Zvonko_Zaky/Images/Annotation%202020-06-21%20061539.png?raw=true)
+
 
 The constant is stored in 2s complement format. Therefore we lose one destination register to ensure we have the 16-bit signed constant. If there is some constant which does not fit in 16-bit signed value, we will need to store it in the main memory and load it when necessary.
 
