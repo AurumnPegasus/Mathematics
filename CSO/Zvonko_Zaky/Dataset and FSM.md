@@ -49,7 +49,7 @@ But hardware to decode variable-length instructions is complex since there may b
 
 ### ALU
 
-![Annotation 2020-06-21 001958](C:\Users\91961\Desktop\Annotation 2020-06-21 001958.png)
+![alt text](https://github.com/AurumnPegasus/Notes/blob/master/CSO/Zvonko_Zaky/Images/Annotation%202020-06-21%20001958.png?raw=true)
 
 Here, OPCODE is a 6 bit field referring to the operation to be performed. rc is the destination register, whereas ra and rb are source register. The rest of the bits are marked as unused and should be set to 0.
 
