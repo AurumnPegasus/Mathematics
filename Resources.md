@@ -10,6 +10,20 @@
 
 * Turing's Paper on Intelligence : https://academic.oup.com/mind/article/LIX/236/433/986238
 
+* Unreasonable Effectiveness of Data : http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/35179.pdf
+
+* Unreasonable Effectiveness of Math in Natural Science : https://www.dartmouth.edu/~matc/MathDrama/reading/Wigner.html
+
+## Linguistics
+
+* Semantic Representation of a sentence : https://amr.isi.edu/language.html
+
+* Wordnet : https://wordnet.princeton.edu/
+
+* NLTK : https://www.nltk.org/
+
+* Deep Learning and NLP : https://www.mitpressjournals.org/doi/pdf/10.1162/COLI_a_00239
+
 
 ## Python Modules
 
@@ -23,11 +37,7 @@
 
 * For langauge processing : https://textblob.readthedocs.io/en/dev/quickstart.html#sentiment-analysis
 
-* Using nltk for langauge processing : https://www.nltk.org/
-
 * To read and manipulate csv : https://pandas.pydata.org/docs/
-
-* Using wordnet for stemming : https://wordnet.princeton.edu/
 
 * Tweet extraction by ids : https://github.com/DocNow/hydrator
 
